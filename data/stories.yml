@@ -1,0 +1,8 @@
+version: "3.1"
+
+stories:
+# - story: pizza_story
+#   steps:
+#   - intent: buy_pizza
+#   - action: simple_pizza_form
+#   - active_loop: simple_pizza_form

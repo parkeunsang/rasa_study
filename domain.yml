@@ -1,0 +1,50 @@
+version: "3.0"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+# This is the form definition.
+# Note that we refer to slots defined below.
+forms:
+  simple_pizza_form:
+    required_slots:
+      - pizza_size
+      - pizza_type
+
+# These are slot definitions.
+# Note that we also have entities with the same name.
+slots:
+  pizza_size:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pizza_size
+  pizza_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pizza_type
+
+# These are simple entity definitions
+entities:
+- pizza_size
+- pizza_type
+
+# We also need to add relevant intents 
+intents:
+- buy_pizza
+- inform
+
+# We also need to add responses for our form.
+responses:
+  utter_submit:
+  - text: I will now order a pizza for you!
+  utter_pizza_slots:
+  - text: I will order a {pizza_size} {pizza_type} pizza.
+  utter_ask_pizza_size:
+  - text: What size would you like your pizza to be?
+  utter_ask_pizza_type:
+  - text: What kind of pizza would you like to buy?
+actions:
+  - validate_simple_pizza_form
