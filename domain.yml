@@ -38,6 +38,8 @@ intents:
 
 # We also need to add responses for our form.
 responses:
+  utter_default:
+  - text: Sorry I didn't get that. Can you rephrase?
   utter_submit:
   - text: I will now order a pizza for you!
   utter_pizza_slots:
@@ -46,5 +48,6 @@ responses:
   - text: What size would you like your pizza to be?
   utter_ask_pizza_type:
   - text: What kind of pizza would you like to buy?
+  
 actions:
   - validate_simple_pizza_form
